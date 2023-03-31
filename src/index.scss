@@ -8,4 +8,77 @@ body,
   height: 100%;
   width: 100%;
   font-family: "Rubik", sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
+
+
+/* SOUND WAVE */
+.loader {
+  height: 70px;
+  display: flex;
+  margin-top: 200px;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  align-items: center;
+}
+.loader .stroke {
+  display: block;
+  position: relative;
+  background: black;
+  height: 100%;
+  width: 10px;
+  border-radius: 50px;
+  margin: 0 5px;
+  animation: wave 1.2s linear infinite;
+}
+@keyframes wave {
+  50% {
+    height: 20%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+$intervals: 0, 0.3, 0.6, 0.9;
+@for $i from 1 through 10 {
+  .stroke:nth-child(#{$i}) {
+    animation-delay: 0s + nth($intervals, ($i % 4) + 1);
+  }
+}
+
+/* VERTICAL LINE */
+.v-line {
+  border: 2px solid black;
+  width: 0.1px;
+  height: 99vh;
+  position: absolute
+}
+
+
+/* MICROPHONE BUTTON */
+.mic-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background-color: gray;
+  position: relative;
+  
+}
+
+.mic-button-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* MAIN CONTAINERS */
+.right-side-container {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
